@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
-import CustomPlayer from './customPlayer';
+import React, { useState } from "react";
+import CustomPlayer from "./customPlayer";
 
 const YoutubePlayer: React.FC = () => {
-  const [inputUrl, setInputUrl] = useState<string>('');
-  const [videoUrl, setVideoUrl] = useState<string>('');
+  const [inputUrl, setInputUrl] = useState<string>("");
+  const [videoUrl, setVideoUrl] = useState<string>("");
 
   const handlePlay = () => {
     setVideoUrl(inputUrl);
   };
 
   return (
-    <div className="p-4 max-w-xl mx-auto">
+    <div className="p-4 rounded-lg  bg-zinc-800 w-full">
+      {/* className="p-2 rounded-lg w-full bg-zinc-800" */}
       <input
         type="text"
         placeholder="Enter YouTube URL"
         value={inputUrl}
         onChange={(e) => setInputUrl(e.target.value)}
-        className="border p-2 w-full"
+        className="border p-2 w-auto rounded bg-zinc-700 text-white mr-2"
       />
       <button
         onClick={handlePlay}
