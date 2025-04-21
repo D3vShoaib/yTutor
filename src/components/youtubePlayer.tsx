@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CustomPlayer from "./customPlayer";
+import ReactPlayer from "react-player";
 
 const YoutubePlayer: React.FC = () => {
   const [inputUrl, setInputUrl] = useState<string>("");
@@ -10,8 +10,7 @@ const YoutubePlayer: React.FC = () => {
   };
 
   return (
-    <div className="p-4 rounded-lg  bg-zinc-800 w-full">
-      {/* className="p-2 rounded-lg w-full bg-zinc-800" */}
+    <div className="p-4 rounded-lg bg-zinc-800 w-full">
       <input
         type="text"
         placeholder="Enter YouTube URL"
@@ -27,8 +26,16 @@ const YoutubePlayer: React.FC = () => {
       </button>
 
       {videoUrl && (
-        <div className="mt-4">
-          <CustomPlayer url={videoUrl} />
+        <div
+          className="mt-4"
+          style={{ position: "relative", paddingTop: "56.25%" }}
+        >
+          <ReactPlayer
+            className="react-player"
+            url={videoUrl}
+            controls
+            style={{ color: "white", position: "absolute", top: 0, left: 0 }}
+          />
         </div>
       )}
     </div>
